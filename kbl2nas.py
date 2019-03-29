@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/expSW/SOFTWARE/python371/bin/python3
 import sys
 from pathlib import Path
 import xml.etree.ElementTree as ET
