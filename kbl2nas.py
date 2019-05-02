@@ -216,6 +216,39 @@ def nas2kbl(DEBUG):
         root.insert(0, myCartes)
 
 
+    crod_dc = defaultdict(list)
+    for line in lines:
+        if line.startswith('CROD'):
+            cid = int(line[16:24].strip())
+            start = int(line[24:32].strip())
+            end = int(line[32:40].strip())
+            crod_dc[cid].append([start, end])
+    print(crod_dc)
+
+    crod_dc_chained = {}
+    for key, vals in crod_dc.items():
+        crod_dc_chained[key] = list(chain(*vals))
+    print(crod_dc_chained)
+
+    crod_dc_chained_uniq = {}
+    for key, vals in crod_dc_chained.items():
+        used = set()
+        unique = [x for x in vals if x not in used and (used.add(x) or True)]
+        crod_dc_chained_uniq[key] = unique
+    print(crod_dc_chained_uniq)
+
+    nodes_dc = {}
+    # Save first element of the first occurance
+    nodes_dc[1] = crod_dc_chained_uniq[1][0]
+    for key, val in crod_dc_chained_uniq.items():
+        # Delete fist element
+        crod_dc_chained_uniq[key] = crod_dc_chained_uniq[key][1:]
+        # Pop last element into nodes_dc
+        nodes_dc[key + 1] = crod_dc_chained_uniq[key].pop()
+
+    print(crod_dc_chained_uniq)
+    print(nodes_dc)
+
 
 
 
