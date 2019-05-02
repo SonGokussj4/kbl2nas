@@ -249,6 +249,27 @@ def nas2kbl(DEBUG):
     print(crod_dc_chained_uniq)
     print(nodes_dc)
 
+    # For each 'Segment' Modify 'Center_curve - Control_points', 'End_node' and 'Start_node'
+    for segment, (key, vals) in zip(root.findall('Segment'), crod_dc_chained_uniq.items()):
+        print(segment.get('id'))
+
+        # Modify 'Start_node'
+        print(f"Modifying 'start_node' = {nodes_dc[key]}")
+        start_node = segment.find('Start_node')
+        start_node.text = str(nodes_dc[key])
+
+        # Modify 'End_node'
+        print(f"Modifying 'end_node' = {nodes_dc[key + 1]}")
+        end_node = segment.find('End_node')
+        end_node.text = str(nodes_dc[key + 1])
+
+        # Modify 'Center_curve'
+        print(f"Modifying 'Center_curve' = {vals}")
+        full_text = ' '.join([f'Cartesian_point_{val}' for val in vals])
+        center_curve = segment.find('Center_curve')
+        control_points = center_curve.find('Control_points')
+        control_points.text = full_text
+
 
 
 
