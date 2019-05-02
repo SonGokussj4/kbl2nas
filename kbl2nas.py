@@ -200,6 +200,22 @@ def nas2kbl(DEBUG):
         # else:
         #     print("point not there, let it be...")
 
+    # Need to add it into a list that will be reverset so that inserting into XML is 1, 2, 3, not 3, 2, 1
+    my_cartes_list = []
+    for item, value in points_dc.items():
+        value: Point
+        pid, ls = value.id_num, value.coords
+        # myCartes = ET.SubElement(root, "Cartesian_point", id=f"Cartesian_point_{pid}")
+        myCartes = ET.Element("Cartesian_point", id=f"Cartesian_point_{pid}")
+        for coord in ls:
+            ET.SubElement(myCartes, "Coordinates").text = coord
+        my_cartes_list.append(myCartes)
+
+    # Insert Cartesian_points to the TOP of root
+    for myCartes in reversed(my_cartes_list):
+        root.insert(0, myCartes)
+
+
 
 
 
