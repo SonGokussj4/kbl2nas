@@ -278,7 +278,24 @@ def nas2kbl(DEBUG):
         print(f"Modifying 'Node id': {node.get('id')} - Cartesian_point: {nodes_dc[node_num]}")
         cartesian_point.text = f'Cartesian_point_{nodes_dc[node_num]}'
 
+    # res = prettify(root)
+    res = indent(root)
+    tree.write(outfile)
 
+    # Write first 3 lines from '.kbl' file into 'outfile'
+    # Reasons: for some reason it won't parse the '<?xxx' lines...
+    with open(kbl_filepah, 'r') as f:
+        start_lines = f.readlines()[0:4]
+
+    with open(outfile, 'r') as f:
+        xml_lines = f.readlines()
+
+    lines = start_lines + xml_lines
+    with open(outfile, 'w') as f:
+        print("Writing first 3 lines from '.kbl' into '.PARSED.kbl'. Reasons: unknown...")
+        f.writelines(lines)
+
+    print("DONE")
 
 
 def main():
