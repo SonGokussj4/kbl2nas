@@ -270,6 +270,14 @@ def nas2kbl(DEBUG):
         control_points = center_curve.find('Control_points')
         control_points.text = full_text
 
+    # Modify 'Node'
+    for node in root.findall('Node'):
+        cartesian_point = node.find('Cartesian_point')
+        cartesian_point: ET.Element
+        node_num = int(node.get('id').split('_')[-1])
+        print(f"Modifying 'Node id': {node.get('id')} - Cartesian_point: {nodes_dc[node_num]}")
+        cartesian_point.text = f'Cartesian_point_{nodes_dc[node_num]}'
+
 
 
 
