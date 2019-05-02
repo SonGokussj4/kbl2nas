@@ -1,24 +1,30 @@
 #!/expSW/SOFTWARE/python371/bin/python3
 import sys
 from pathlib import Path
+from pprint import pprint
 import xml.etree.ElementTree as ET
+# from xml.dom import minidom
 
 
 class Point:
-    """Cartesian Point."""
+    """Cartesian Point.
+
+    point_id ... Cartesian_point_46
+    coords_list ... [-100, 65.43325, 14.556]
+    """
 
     def __init__(self, point_id, coords_list):
         super(Point, self).__init__()
         self.coords = coords_list
-        self.point_id = point_id
+        self._point_id = point_id
 
     @property
     def id(self):
-        return self.point_id
+        return self._point_id
 
     @property
     def id_num(self):
-        return self.point_id.split('_')[-1]
+        return int(self._point_id.split('_')[-1])
 
     @property
     def x(self):
@@ -31,6 +37,14 @@ class Point:
     @property
     def z(self):
         return round(float(self.coords[2]), 4)
+
+
+# def prettify(elem):
+#     """Return a pretty-printed XML string for the Element.
+#     """
+#     rough_string = ET.tostring(elem, 'utf-8')
+#     reparsed = minidom.parseString(rough_string)
+#     return reparsed.toprettyxml(indent="    ")
 
 
 def kbl2nas(DEBUG):
@@ -98,20 +112,57 @@ def nas2kbl(DEBUG):
     """Nas to Cable, 2 arguments needed (.nas, .kbl)."""
     print("Hej hou...")
 
+    if DEBUG:
+        nas_filepath = '/ST/Evektor/UZIV/JVERNER/PROJEKTY/UZIV/DKRUTILEK/2019-03-28_KBL2NAS/190305-export.10mm_EDIT_DK_all.nas'
+        kbl_filepah = '/ST/Evektor/UZIV/JVERNER/PROJEKTY/UZIV/DKRUTILEK/2019-03-28_KBL2NAS/190305-export.10mm.kbl'
+        nas_filepath = Path(nas_filepath).resolve()
+        kbl_filepah = Path(kbl_filepah).resolve()
+    else:
+        nas_filepath = Path(sys.argv[1]).resolve()
+        kbl_filepah = Path(sys.argv[1]).resolve()
+
     # Acquire NAS file
-    nas_filepath = Path(sys.argv[1]).resolve()
+    # nas_filepath = Path(sys.argv[1]).resolve()
     if nas_filepath.suffix != '.nas':
         print("Not NAS file!!!")
         sys.exit(1)
 
     # Acquire KBL file
-    kbl_filepah = Path(sys.argv[2]).resolve()
+    # kbl_filepah = Path(sys.argv[2]).resolve()
     if kbl_filepah.suffix != '.kbl':
         print("Not KBL file!!!")
         sys.exit(1)
 
-    if DEBUG: print("DEBUG: nas_filepath:", nas_filepath)
-    if DEBUG: print("DEBUG: kbl_filepah:", kbl_filepah)
+    outfile = f'{kbl_filepah.parent}/{kbl_filepah.stem}.PARSED.kbl'
+
+    if DEBUG:
+        print("DEBUG: nas_filepath:", nas_filepath)
+    if DEBUG:
+        print("DEBUG: kbl_filepah:", kbl_filepah)
+    if DEBUG:
+        print("DEBUG: outfile:", outfile)
+
+    # Load ETREE
+    with open(kbl_filepah, 'rt') as f:
+        tree = ET.parse(f)
+        root = tree.getroot()
+
+    # print(prettify(root))
+
+    res = ET.tostring(root, encoding="utf-8", method="xml").decode('utf-8')
+    print(res)
+
+    with open(nas_filepath, 'r') as f:
+        lines = [line.strip() for line in f.readlines()]
+
+    points = []
+    for line in lines:
+        if line.startswith('GRID'):
+            pid = 'Cartesian_point_{}'.format(line[8:16].strip())
+            px = line[24:32].strip()
+            py = line[32:40].strip()
+            pz = line[40:48].strip()
+            points.append(Point(pid, [px, py, pz]))
 
 
 
@@ -119,17 +170,20 @@ def nas2kbl(DEBUG):
 def main():
     DEBUG = True
 
-    if len(sys.argv) == 1:
+    if DEBUG:
+        nas2kbl(DEBUG)
+
+    if not DEBUG and len(sys.argv) == 1:
         print("No arguments...")
         sys.exit(1)
 
-    elif len(sys.argv) == 2:
+    elif not DEBUG and len(sys.argv) == 2:
         kbl2nas(DEBUG)
 
-    elif len(sys.argv) == 3:
+    elif not DEBUG and len(sys.argv) == 3:
         nas2kbl(DEBUG)
 
-    else:
+    elif not DEBUG and len(sys.argv) > 3:
         print("Wrong number of arguments...")
         sys.exit(1)
 
