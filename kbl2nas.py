@@ -33,13 +33,18 @@ class Point:
         return round(float(self.coords[2]), 4)
 
 
-def main():
-    DEBUG = False
+def kbl2nas(DEBUG):
+    """Cable to Nas, 1 Argument neded (.kbl file)."""
     if DEBUG:
         filepath = '/ST/Evektor/UZIV/JVERNER/PROJEKTY/UZIV/DKRUTILEK/2019-03-28_KBL2NAS/190305-export.10mm.kbl'
         filepath = Path(filepath).resolve()
     else:
         filepath = Path(sys.argv[1]).resolve()
+
+    if filepath.suffix != '.kbl':
+        print("Not KBL file!!!")
+        sys.exit(1)
+
     outfile = f'{filepath.parent}/{filepath.stem}.nas'
 
     # Load ETREE
@@ -87,6 +92,46 @@ def main():
     # Write into a file
     with open(outfile, 'w') as f:
         f.writelines(lines)
+
+
+def nas2kbl(DEBUG):
+    """Nas to Cable, 2 arguments needed (.nas, .kbl)."""
+    print("Hej hou...")
+
+    # Acquire NAS file
+    nas_filepath = Path(sys.argv[1]).resolve()
+    if nas_filepath.suffix != '.nas':
+        print("Not NAS file!!!")
+        sys.exit(1)
+
+    # Acquire KBL file
+    kbl_filepah = Path(sys.argv[2]).resolve()
+    if kbl_filepah.suffix != '.kbl':
+        print("Not KBL file!!!")
+        sys.exit(1)
+
+    if DEBUG: print("DEBUG: nas_filepath:", nas_filepath)
+    if DEBUG: print("DEBUG: kbl_filepah:", kbl_filepah)
+
+
+
+
+def main():
+    DEBUG = True
+
+    if len(sys.argv) == 1:
+        print("No arguments...")
+        sys.exit(1)
+
+    elif len(sys.argv) == 2:
+        kbl2nas(DEBUG)
+
+    elif len(sys.argv) == 3:
+        nas2kbl(DEBUG)
+
+    else:
+        print("Wrong number of arguments...")
+        sys.exit(1)
 
 
 if __name__ == '__main__':
