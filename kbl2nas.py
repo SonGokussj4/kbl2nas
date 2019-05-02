@@ -3,7 +3,9 @@ import sys
 from pathlib import Path
 from pprint import pprint
 import xml.etree.ElementTree as ET
-# from xml.dom import minidom
+from collections import defaultdict
+from xml.dom import minidom
+from itertools import chain
 
 
 class Point:
@@ -39,12 +41,28 @@ class Point:
         return round(float(self.coords[2]), 4)
 
 
-# def prettify(elem):
-#     """Return a pretty-printed XML string for the Element.
-#     """
-#     rough_string = ET.tostring(elem, 'utf-8')
-#     reparsed = minidom.parseString(rough_string)
-#     return reparsed.toprettyxml(indent="    ")
+def prettify(elem):
+    """Return a pretty-printed XML string for the Element.
+    """
+    rough_string = ET.tostring(elem, 'utf-8')
+    reparsed = minidom.parseString(rough_string)
+    return reparsed.toprettyxml(indent="    ")
+
+
+def indent(elem, level=0, hor='    ', ver='\n'):
+    i = ver + level * hor
+    if len(elem):
+        if not elem.text or not elem.text.strip():
+            elem.text = i + hor
+        if not elem.tail or not elem.tail.strip():
+            elem.tail = i
+        for elem in elem:
+            indent(elem, level + 1, hor, ver)
+        if not elem.tail or not elem.tail.strip():
+            elem.tail = i
+    else:
+        if level and (not elem.tail or not elem.tail.strip()):
+            elem.tail = i
 
 
 def kbl2nas(DEBUG):
@@ -140,9 +158,12 @@ def nas2kbl(DEBUG):
         print("DEBUG: outfile:", outfile)
 
     # Load ETREE
-    with open(kbl_filepah, 'rt') as f:
-        tree = ET.parse(f)
-        root = tree.getroot()
+    # with open(kbl_filepah, 'rt') as f:
+    #     tree = ET.parse(f)
+    #     root = tree.getroot()
+
+    tree = ET.parse(kbl_filepah)
+    root = tree.getroot()
 
     # print(prettify(root))
 
@@ -152,14 +173,32 @@ def nas2kbl(DEBUG):
     with open(nas_filepath, 'r') as f:
         lines = [line.strip() for line in f.readlines()]
 
-    points = []
+    # points = []
+    # points_dc = defaultdict(list)
+    points_dc = {}
+
     for line in lines:
         if line.startswith('GRID'):
-            pid = 'Cartesian_point_{}'.format(line[8:16].strip())
+            pid_num = line[8:16].strip()
+            pid = f'Cartesian_point_{pid_num}'
             px = line[24:32].strip()
             py = line[32:40].strip()
             pz = line[40:48].strip()
-            points.append(Point(pid, [px, py, pz]))
+            # points.append(Point(pid, [px, py, pz]))
+            points_dc[pid_num] = Point(pid, [px, py, pz])
+
+    pprint(points_dc)
+
+    # ADD Cartesian Points
+    for cartes_point in root.findall('Cartesian_point'):
+        root.remove(cartes_point)
+        # print(f"id: {cartes_point.get('id')}")
+        # id_num = cartes_point.get('id').split('_')[-1]
+        # if id_num in points_dc.keys():
+        #     print("Point is there, delete")
+        #     root.remove(cartes_point)
+        # else:
+        #     print("point not there, let it be...")
 
 
 
