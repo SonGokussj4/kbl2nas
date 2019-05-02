@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?VWGELENA version="2.6.0" CATIA_version="V5R26SP3HF42" system="Unkown10.0" compilation_date="2016-08-17 " compilation_time="13:13:21"?>
+<?DateOfExtraction date="2019-01-30 10:49:46"?>
+<kbl:KBL_container id="KBL_container_1" version_id="2.3" xmlns:kbl="http://www.prostep.org/Car_electric_container/KBL2.3/KBLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.prostep.org/Car_electric_container/KBL2.3/KBLSchema KBL_Schema_V2.3.xsd">
+<ns0:KBL_container xmlns:ns0="http://www.prostep.org/Car_electric_container/KBL2.3/KBLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="KBL_container_1" version_id="2.3" xsi:schemaLocation="http://www.prostep.org/Car_electric_container/KBL2.3/KBLSchema KBL_Schema_V2.3.xsd">
+    <Cartesian_point id="Cartesian_point_25">
+        <Coordinates>100.</Coordinates>
+        <Coordinates>-100.</Coordinates>
+        <Coordinates>100.</Coordinates>
+    </Cartesian_point>
+    <Cartesian_point id="Cartesian_point_26">
+        <Coordinates>0.</Coordinates>
+        <Coordinates>-85.</Coordinates>
+        <Coordinates>0.</Coordinates>
+    </Cartesian_point>
+    <Cartesian_point id="Cartesian_point_27">
+        <Coordinates>-100.</Coordinates>
+        <Coordinates>-100.</Coordinates>
+        <Coordinates>-100.</Coordinates>
+    </Cartesian_point>
+    <Cartesian_point id="Cartesian_point_28">
+        <Coordinates>100.</Coordinates>
+        <Coordinates>100.</Coordinates>
+        <Coordinates>100.</Coordinates>
+    </Cartesian_point>
+    <Cartesian_point id="Cartesian_point_29">
+        <Coordinates>100.</Coordinates>
+        <Coordinates>-100.</Coordinates>
+        <Coordinates>100.</Coordinates>
+    </Cartesian_point>
+    <Cartesian_point id="Cartesian_point_30">
+        <Coordinates>94.79442</Coordinates>
+        <Coordinates>-99.2192</Coordinates>
+        <Coordinates>94.79442</Coordinates>
+    </Cartesian_point>
+    <Cartesian_point id="Cartesian_point_32">
+        <Coordinates>83.39483</Coordinates>
+        <Coordinates>-97.5092</Coordinates>
+        <Coordinates>83.39483</Coordinates>
+    </Cartesian_point>
+    <Cartesian_point id="Cartesian_point_34">
+        <Coordinates>70.86936</Coordinates>
+        <Coordinates>-95.6304</Coordinates>
+        <Coordinates>70.86936</Coordinates>
+    </Cartesian_point>
+    <Cartesian_point id="Cartesian_point_36">
+        <Coordinates>57.43348</Coordinates>
+        <Coordinates>-93.615</Coordinates>
+        <Coordinates>57.43348</Coordinates>
+    </Cartesian_point>
+    <Cartesian_point id="Cartesian_point_38">
+        <Coordinates>43.28877</Coordinates>
+        <Coordinates>-91.4933</Coordinates>
+        <Coordinates>43.28877</Coordinates>
+    </Cartesian_point>
+    <Cartesian_point id="Cartesian_point_40">
+        <Coordinates>28.62588</Coordinates>
+        <Coordinates>-89.2939</Coordinates>
+        <Coordinates>28.62588</Coordinates>
+    </Cartesian_point>
+    <Cartesian_point id="Cartesian_point_42">
+        <Coordinates>13.62771</Coordinates>
+        <Coordinates>-87.0442</Coordinates>
+        <Coordinates>13.62771</Coordinates>
+    </Cartesian_point>
+    <Cartesian_point id="Cartesian_point_44">
+        <Coordinates>0.</Coordinates>
+        <Coordinates>-85.</Coordinates>
+        <Coordinates>0.</Coordinates>
+    </Cartesian_point>
+    <Cartesian_point id="Cartesian_point_45">
+        <Coordinates>-6.64444</Coordinates>
+        <Coordinates>-85.9967</Coordinates>
+        <Coordinates>-6.64444</Coordinates>
+    </Cartesian_point>
+    <Cartesian_point id="Cartesian_point_46">
+        <Coordinates>-13.5352</Coordinates>
+        <Coordinates>-87.0303</Coordinates>
+        <Coordinates>-13.5352</Coordinates>
+    </Cartesian_point>
+    <Cartesian_point id="Cartesian_point_47">
+        <Coordinates>-20.6128</Coordinates>
+        <Coordinates>-88.0919</Coordinates>
+        <Coordinates>-20.6128</Coordinates>
+    </Cartesian_point>
+    <Cartesian_point id="Cartesian_point_48">
+        <Coordinates>-27.8217</Coordinates>
+        <Coordinates>-89.1733</Coordinates>
+        <Coordinates>-27.8217</Coordinates>
+    </Cartesian_point>
+    <Cartesian_point id="Cartesian_point_49">
+        <Coordinates>-35.1104</Coordinates>
+        <Coordinates>-90.2666</Coordinates>
+        <Coordinates>-35.1104</Coordinates>
+    </Cartesian_point>
+    <Cartesian_point id="Cartesian_point_50">
+        <Coordinates>-42.4293</Coordinates>
+        <Coordinates>-91.3644</Coordinates>
+        <Coordinates>-42.4293</Coordinates>
+    </Cartesian_point>
+    <Cartesian_point id="Cartesian_point_51">
+        <Coordinates>-49.7298</Coordinates>
+        <Coordinates>-92.4595</Coordinates>
+        <Coordinates>-49.7298</Coordinates>
+    </Cartesian_point>
+    <Cartesian_point id="Cartesian_point_52">
+        <Coordinates>-56.9631</Coordinates>
+        <Coordinates>-93.5445</Coordinates>
+        <Coordinates>-56.9631</Coordinates>
+    </Cartesian_point>
+    <Cartesian_point id="Cartesian_point_53">
+        <Coordinates>-64.0784</Coordinates>
+        <Coordinates>-94.6118</Coordinates>
+        <Coordinates>-64.0784</Coordinates>
+    </Cartesian_point>
+    <Cartesian_point id="Cartesian_point_54">
+        <Coordinates>-71.022</Coordinates>
+        <Coordinates>-95.6533</Coordinates>
+        <Coordinates>-71.022</Coordinates>
+    </Cartesian_point>
+    <Cartesian_point id="Cartesian_point_55">
+        <Coordinates>-77.7354</Coordinates>
+        <Coordinates>-96.6603</Coordinates>
+        <Coordinates>-77.7354</Coordinates>
+    </Cartesian_point>
+    <Cartesian_point id="Cartesian_point_56">
+        <Coordinates>-84.1536</Coordinates>
+        <Coordinates>-97.623</Coordinates>
+        <Coordinates>-84.1536</Coordinates>
+    </Cartesian_point>
+    <Cartesian_point id="Cartesian_point_57">
+        <Coordinates>-90.2042</Coordinates>
+        <Coordinates>-98.5306</Coordinates>
+        <Coordinates>-90.2042</Coordinates>
+    </Cartesian_point>
+    <Cartesian_point id="Cartesian_point_58">
+        <Coordinates>-95.8045</Coordinates>
+        <Coordinates>-99.3707</Coordinates>
+        <Coordinates>-95.8045</Coordinates>
+    </Cartesian_point>
+    <Cartesian_point id="Cartesian_point_59">
+        <Coordinates>100.</Coordinates>
+        <Coordinates>100.</Coordinates>
+        <Coordinates>100.</Coordinates>
+    </Cartesian_point>
+    <Cartesian_point id="Cartesian_point_60">
+        <Coordinates>97.65531</Coordinates>
+        <Coordinates>95.66233</Coordinates>
+        <Coordinates>97.65531</Coordinates>
+    </Cartesian_point>
+    <Cartesian_point id="Cartesian_point_61">
+        <Coordinates>94.74462</Coordinates>
+        <Coordinates>90.27755</Coordinates>
+        <Coordinates>94.74462</Coordinates>
+    </Cartesian_point>
+    <Cartesian_point id="Cartesian_point_62">
+        <Coordinates>91.37871</Coordinates>
+        <Coordinates>84.05062</Coordinates>
+        <Coordinates>91.37871</Coordinates>
+    </Cartesian_point>
+    <Cartesian_point id="Cartesian_point_63">
+        <Coordinates>87.65151</Coordinates>
+        <Coordinates>77.1553</Coordinates>
+        <Coordinates>87.65151</Coordinates>
+    </Cartesian_point>
+    <Cartesian_point id="Cartesian_point_64">
+        <Coordinates>83.64154</Coordinates>
+        <Coordinates>69.73685</Coordinates>
+        <Coordinates>83.64154</Coordinates>
+    </Cartesian_point>
+    <Cartesian_point id="Cartesian_point_65">
+        <Coordinates>79.41384</Coordinates>
+        <Coordinates>61.91561</Coordinates>
+        <Coordinates>79.41384</Coordinates>
+    </Cartesian_point>
+    <Cartesian_point id="Cartesian_point_66">
+        <Coordinates>75.02156</Coordinates>
+        <Coordinates>53.78989</Coordinates>
+        <Coordinates>75.02156</Coordinates>
+    </Cartesian_point>
+    <Cartesian_point id="Cartesian_point_67">
+        <Coordinates>70.50737</Coordinates>
+        <Coordinates>45.43864</Coordinates>
+        <Coordinates>70.50737</Coordinates>
+    </Cartesian_point>
+    <Cartesian_point id="Cartesian_point_68">
+        <Coordinates>65.90534</Coordinates>
+        <Coordinates>36.92487</Coordinates>
+        <Coordinates>65.90534</Coordinates>
+    </Cartesian_point>
+    <Cartesian_point id="Cartesian_point_69">
+        <Coordinates>61.24241</Coordinates>
+        <Coordinates>28.29846</Coordinates>
+        <Coordinates>61.24241</Coordinates>
+    </Cartesian_point>
+    <Cartesian_point id="Cartesian_point_70">
+        <Coordinates>56.54011</Coordinates>
+        <Coordinates>19.5992</Coordinates>
+        <Coordinates>56.54011</Coordinates>
+    </Cartesian_point>
+    <Cartesian_point id="Cartesian_point_71">
+        <Coordinates>51.81616</Coordinates>
+        <Coordinates>10.85989</Coordinates>
+        <Coordinates>51.81616</Coordinates>
+    </Cartesian_point>
+    <Cartesian_point id="Cartesian_point_72">
+        <Coordinates>47.08598</Coordinates>
+        <Coordinates>2.109071</Coordinates>
+        <Coordinates>47.08598</Coordinates>
+    </Cartesian_point>
+    <Cartesian_point id="Cartesian_point_73">
+        <Coordinates>42.36445</Coordinates>
+        <Coordinates>-6.62577</Coordinates>
+        <Coordinates>42.36445</Coordinates>
+    </Cartesian_point>
+    <Cartesian_point id="Cartesian_point_74">
+        <Coordinates>37.66735</Coordinates>
+        <Coordinates>-15.3154</Coordinates>
+        <Coordinates>37.66735</Coordinates>
+    </Cartesian_point>
+    <Cartesian_point id="Cartesian_point_75">
+        <Coordinates>33.01316</Coordinates>
+        <Coordinates>-23.9256</Coordinates>
+        <Coordinates>33.01316</Coordinates>
+    </Cartesian_point>
+    <Cartesian_point id="Cartesian_point_76">
+        <Coordinates>28.42442</Coordinates>
+        <Coordinates>-32.4148</Coordinates>
+        <Coordinates>28.42442</Coordinates>
+    </Cartesian_point>
+    <Cartesian_point id="Cartesian_point_77">
+        <Coordinates>23.92951</Coordinates>
+        <Coordinates>-40.7304</Coordinates>
+        <Coordinates>23.92951</Coordinates>
+    </Cartesian_point>
+    <Cartesian_point id="Cartesian_point_78">
+        <Coordinates>19.56416</Coordinates>
+        <Coordinates>-48.8063</Coordinates>
+        <Coordinates>19.56416</Coordinates>
+    </Cartesian_point>
+    <Cartesian_point id="Cartesian_point_79">
+        <Coordinates>15.37301</Coordinates>
+        <Coordinates>-56.5599</Coordinates>
+        <Coordinates>15.37301</Coordinates>
+    </Cartesian_point>
+    <Cartesian_point id="Cartesian_point_80">
+        <Coordinates>11.41121</Coordinates>
+        <Coordinates>-63.8893</Coordinates>
+        <Coordinates>11.41121</Coordinates>
+    </Cartesian_point>
+    <Cartesian_point id="Cartesian_point_81">
+        <Coordinates>7.746027</Coordinates>
+        <Coordinates>-70.6699</Coordinates>
+        <Coordinates>7.746027</Coordinates>
+    </Cartesian_point>
+    <Cartesian_point id="Cartesian_point_82">
+        <Coordinates>4.458314</Coordinates>
+        <Coordinates>-76.7521</Coordinates>
+        <Coordinates>4.458314</Coordinates>
+    </Cartesian_point>
+    <Cartesian_point id="Cartesian_point_83">
+        <Coordinates>1.644186</Coordinates>
+        <Coordinates>-81.9583</Coordinates>
+        <Coordinates>1.644186</Coordinates>
+    </Cartesian_point>
+    <Unit id="Unit_1">
+        <Si_unit_name>metre</Si_unit_name>
+        <Si_prefix>milli</Si_prefix>
+    </Unit>
+    <Unit id="Unit_2">
+        <Si_unit_name>metre</Si_unit_name>
+        <Si_prefix>milli</Si_prefix>
+        <Si_dimension>square</Si_dimension>
+    </Unit>
+    <External_reference id="External_reference_1">
+        <Document_type>EKR</Document_type>
+        <Document_number>N_017_516_2</Document_number>
+        <Change_level>2019-01-30 10:49:36</Change_level>
+        <File_name>N_017_516_2.CATPart</File_name>
+        <Data_format>catPart</Data_format>
+        <Creating_system>CATIA V5R26 SP3</Creating_system>
+    </External_reference>
+    <Connector_housing id="Connector_housing_1">
+        <Part_number>N_017_516_2</Part_number>
+        <Company_name>Volkswagen AG</Company_name>
+        <Version>/NULL</Version>
+        <Abbreviation>/NULL</Abbreviation>
+        <Description>KABELSCHUH</Description>
+        <External_references>External_reference_1</External_references>
+    </Connector_housing>
+    <External_reference id="External_reference_2">
+        <Document_type>ELV</Document_type>
+        <Document_number>/NULL</Document_number>
+        <Change_level>/NULL</Change_level>
+        <File_name>TAB_888_888____KPR_ELX_001_____KBL_TEST___________EXAMPLE_HARNESS.CATProduct</File_name>
+        <Data_format>catProduct</Data_format>
+        <Creating_system>CATIA V5R26 SP3</Creating_system>
+    </External_reference>
+    <Harness id="Harness_1">
+        <Part_number>/NULL</Part_number>
+        <Company_name>Volkswagen AG</Company_name>
+        <Alias_id id="Alias_id_1">
+            <Alias_id>/NULL</Alias_id>
+            <Scope>VOBES</Scope>
+            <Description>LCable Harnessname</Description>
+        </Alias_id>
+        <Version>/NULL</Version>
+        <Abbreviation>/NULL</Abbreviation>
+        <Description>/NULL</Description>
+        <Predecessor_part_number>/NULL</Predecessor_part_number>
+        <External_references>External_reference_2</External_references>
+        <Change id="Change_1">
+            <Description>/NULL</Description>
+            <Change_date>/NULL</Change_date>
+            <Responsible_designer>/NULL</Responsible_designer>
+            <Designer_department>/NULL</Designer_department>
+        </Change>
+        <Car_classification_level_2>/NULL</Car_classification_level_2>
+        <Model_year>/NULL</Model_year>
+        <Content>harness complete set</Content>
+        <Connector_occurrence id="Connector_occurrence_1">
+            <Placement id="Placement_1">
+                <U>-0.049135</U>
+                <U>-0.121441</U>
+                <U>0.991382</U>
+                <V>-0.998371</V>
+                <V>-0.022846</V>
+                <V>-0.052280</V>
+                <Cartesian_point>Cartesian_point_1</Cartesian_point>
+            </Placement>
+            <Part>Connector_housing_1</Part>
+            <Alias_id id="Alias_id_2">
+                <Alias_id>CN1</Alias_id>
+                <Scope>VOBES</Scope>
+                <Description>Alias-Ref</Description>
+            </Alias_id>
+            <Id>CN1</Id>
+        </Connector_occurrence>
+        <Connector_occurrence id="Connector_occurrence_2">
+            <Placement id="Placement_2">
+                <U>-0.000683</U>
+                <U>0.038721</U>
+                <U>-0.999250</U>
+                <V>-0.999283</V>
+                <V>0.037800</V>
+                <V>0.002148</V>
+                <Cartesian_point>Cartesian_point_2</Cartesian_point>
+            </Placement>
+            <Part>Connector_housing_1</Part>
+            <Alias_id id="Alias_id_3">
+                <Alias_id>CN2</Alias_id>
+                <Scope>VOBES</Scope>
+                <Description>Alias-Ref</Description>
+            </Alias_id>
+            <Id>CN2</Id>
+        </Connector_occurrence>
+        <Connector_occurrence id="Connector_occurrence_3">
+            <Placement id="Placement_3">
+                <U>-0.030762</U>
+                <U>0.003957</U>
+                <U>-0.999519</U>
+                <V>0.957206</V>
+                <V>0.288018</V>
+                <V>-0.028320</V>
+                <Cartesian_point>Cartesian_point_3</Cartesian_point>
+            </Placement>
+            <Part>Connector_housing_1</Part>
+            <Alias_id id="Alias_id_4">
+                <Alias_id>CN3</Alias_id>
+                <Scope>VOBES</Scope>
+                <Description>Alias-Ref</Description>
+            </Alias_id>
+            <Id>CN3</Id>
+        </Connector_occurrence>
+    </Harness>
+    <Segment id="Segment_1">
+        <Id>ROUTING_HUT_KBL_TEST-Multi-branchable1/ElecRouteBody.1/Split.1</Id>
+        <Start_vector>-0.999283</Start_vector>
+        <Start_vector>0.037800</Start_vector>
+        <Start_vector>0.002148</Start_vector>
+        <End_vector>-0.453598</End_vector>
+        <End_vector>0.116171</End_vector>
+        <End_vector>-0.883602</End_vector>
+        <Virtual_length id="Virtual_length_1">
+            <Unit_component>Unit_1</Unit_component>
+            <Value_component>149.999912</Value_component>
+        </Virtual_length>
+        <Form>circular</Form>
+        <End_node>26</End_node>
+        <Start_node>25</Start_node>
+        <Cross_section_area_information id="Cross_section_area_1">
+            <Value_determination>reserved</Value_determination>
+            <Area id="Area_1">
+                <Unit_component>Unit_2</Unit_component>
+                <Value_component>28.274334</Value_component>
+            </Area>
+        </Cross_section_area_information>
+        <Center_curve id="Center_curve_1">
+            <Degree>1</Degree>
+            <Control_points>Cartesian_point_29 Cartesian_point_30 Cartesian_point_32 Cartesian_point_34 Cartesian_point_36 Cartesian_point_38 Cartesian_point_40 Cartesian_point_42</Control_points>
+        </Center_curve>
+    </Segment>
+    <Segment id="Segment_2">
+        <Id>ROUTING_HUT_KBL_TEST-Multi-branchable2/ElecRouteBody.3/Flexible Curve.3</Id>
+        <Start_vector>-0.404058</Start_vector>
+        <Start_vector>0.097616</Start_vector>
+        <Start_vector>-0.909510</Start_vector>
+        <End_vector>-0.957206</End_vector>
+        <End_vector>-0.288018</End_vector>
+        <End_vector>0.028320</End_vector>
+        <Virtual_length id="Virtual_length_2">
+            <Unit_component>Unit_1</Unit_component>
+            <Value_component>150.000000</Value_component>
+        </Virtual_length>
+        <Form>circular</Form>
+        <End_node>27</End_node>
+        <Start_node>26</Start_node>
+        <Cross_section_area_information id="Cross_section_area_2">
+            <Value_determination>reserved</Value_determination>
+            <Area id="Area_2">
+                <Unit_component>Unit_2</Unit_component>
+                <Value_component>28.274334</Value_component>
+            </Area>
+        </Cross_section_area_information>
+        <Center_curve id="Center_curve_2">
+            <Degree>1</Degree>
+            <Control_points>Cartesian_point_44 Cartesian_point_45 Cartesian_point_46 Cartesian_point_47 Cartesian_point_48 Cartesian_point_49 Cartesian_point_50 Cartesian_point_51 Cartesian_point_52 Cartesian_point_53 Cartesian_point_54 Cartesian_point_55 Cartesian_point_56 Cartesian_point_57 Cartesian_point_58</Control_points>
+        </Center_curve>
+    </Segment>
+    <Segment id="Segment_3">
+        <Id>ROUTING_HUT_KBL_TEST-Multi-branchable3/ElecRouteBody.1/Split.3</Id>
+        <Start_vector>-0.998371</Start_vector>
+        <Start_vector>-0.022846</Start_vector>
+        <Start_vector>-0.052280</Start_vector>
+        <End_vector>-0.404357</End_vector>
+        <End_vector>0.097282</End_vector>
+        <End_vector>-0.909413</End_vector>
+        <Virtual_length id="Virtual_length_3">
+            <Unit_component>Unit_1</Unit_component>
+            <Value_component>250.000097</Value_component>
+        </Virtual_length>
+        <Form>circular</Form>
+        <End_node>26</End_node>
+        <Start_node>27</Start_node>
+        <Cross_section_area_information id="Cross_section_area_3">
+            <Value_determination>reserved</Value_determination>
+            <Area id="Area_3">
+                <Unit_component>Unit_2</Unit_component>
+                <Value_component>28.274334</Value_component>
+            </Area>
+        </Cross_section_area_information>
+        <Center_curve id="Center_curve_3">
+            <Degree>1</Degree>
+            <Control_points>Cartesian_point_59 Cartesian_point_60 Cartesian_point_61 Cartesian_point_62 Cartesian_point_63 Cartesian_point_64 Cartesian_point_65 Cartesian_point_66 Cartesian_point_67 Cartesian_point_68 Cartesian_point_69 Cartesian_point_70 Cartesian_point_71 Cartesian_point_72 Cartesian_point_73 Cartesian_point_74 Cartesian_point_75 Cartesian_point_76 Cartesian_point_77 Cartesian_point_78 Cartesian_point_79 Cartesian_point_80 Cartesian_point_81 Cartesian_point_82 Cartesian_point_83</Control_points>
+        </Center_curve>
+    </Segment>
+    <Node id="Node_1">
+        <Id>CN2 ROUTING_HUT_KBL_TEST-Multi-branchable1/ElecRouteBody.1/Split.1/ElecBundleSegmentExtremity.1</Id>
+        <Cartesian_point>Cartesian_point_25</Cartesian_point>
+        <Referenced_components>Connector_occurrence_2</Referenced_components>
+    </Node>
+    <Node id="Node_2">
+        <Id>ROUTING_HUT_KBL_TEST-Multi-branchable1/ElecRouteBody.1/Split.1/ElecBundleSegmentExtremity.2 ROUTING_HUT_KBL_TEST-Multi-branchable2/ElecRouteBody.3/Flexible Curve.3/ElecBundleSegmentExtremity.7 ROUTING_HUT_KBL_TEST-Multi-branchable3/ElecRouteBody.1/Split.3/ElecBundleSegmentExtremity.2</Id>
+        <Cartesian_point>Cartesian_point_26</Cartesian_point>
+    </Node>
+    <Node id="Node_3">
+        <Id>CN3 ROUTING_HUT_KBL_TEST-Multi-branchable2/ElecRouteBody.3/Flexible Curve.3/ElecBundleSegmentExtremity.8</Id>
+        <Cartesian_point>Cartesian_point_27</Cartesian_point>
+        <Referenced_components>Connector_occurrence_3</Referenced_components>
+    </Node>
+    <Node id="Node_4">
+        <Id>CN1 ROUTING_HUT_KBL_TEST-Multi-branchable3/ElecRouteBody.1/Split.3/ElecBundleSegmentExtremity.1</Id>
+        <Cartesian_point>Cartesian_point_26</Cartesian_point>
+        <Referenced_components>Connector_occurrence_1</Referenced_components>
+    </Node>
+</ns0:KBL_container>
