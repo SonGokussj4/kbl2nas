@@ -50,8 +50,7 @@ class Point:
 def kbl2nas(DEBUG):
     """Cable to Nas, 1 Argument neded (.kbl file)."""
     if DEBUG:
-        filepath = '/ST/Evektor/UZIV/JVERNER/PROJEKTY/UZIV/DKRUTILEK/2019-03-28_KBL2NAS/190305-export.10mm.kbl'
-        filepath = Path(filepath).resolve()
+        filepath = Path(__file__).parent.resolve() / 'examples' / '190305-export.10mm.kbl'
     else:
         filepath = Path(sys.argv[1]).resolve()
 
@@ -113,10 +112,8 @@ def nas2kbl(DEBUG):
     print("Hej hou...")
 
     if DEBUG:
-        nas_filepath = '/ST/Evektor/UZIV/JVERNER/PROJEKTY/UZIV/DKRUTILEK/2019-03-28_KBL2NAS/190305-export.10mm_EDIT_DK_all.nas'
-        kbl_filepah = '/ST/Evektor/UZIV/JVERNER/PROJEKTY/UZIV/DKRUTILEK/2019-03-28_KBL2NAS/190305-export.10mm.kbl'
-        nas_filepath = Path(nas_filepath).resolve()
-        kbl_filepah = Path(kbl_filepah).resolve()
+        nas_filepath = Path(__file__).parent.resolve() / 'examples' / '190305-export.10mm_EDIT_DK_all.nas'
+        kbl_filepah = Path(__file__).parent.resolve() / 'examples' / '190305-export.10mm.kbl'
     else:
         nas_filepath = Path(sys.argv[1]).resolve()
         kbl_filepah = Path(sys.argv[1]).resolve()
