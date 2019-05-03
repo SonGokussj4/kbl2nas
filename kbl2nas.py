@@ -308,6 +308,46 @@ def nas2kbl(DEBUG):
 
     print("[ INFO ] DONE")
 
+    ## Testing MENU
+    # from pimento import menu
+    # result = menu(
+    #     ['Yes', 'No'],
+    #     pre_prompt='Available options:',
+    #     post_prompt='Do you want to continue? [{}]: ',
+    #     default_index=0,
+    #     indexed=True,
+    #     insensitive=True,
+    #     fuzzy=True
+    # )
+    # print("DEBUG: result:", result)
+
+    # ## https://github.com/kamik423/cutie
+    # import cutie
+    # if not cutie.prompt_yes_or_no("Are you want continuing?", enter_empty_confirms=True):
+    #     exit()
+
+    # names = [
+    #     'Normalni odpovedi:',
+    #     'Yes',
+    #     'No',
+    #     'Divne odpovedi:',
+    #     'Very much indeed',
+    #     'Whoooo, NONONO',
+    # ]
+    # captions = [0, 3]
+    # name = names[
+    #     cutie.select(names, caption_indices=captions, selected_index=0)]
+    # # cutie.select(names, selected_index=0)]
+    # print(f"You just pressed: {name}")
+    # age = cutie.get_number(
+    #     'What is your age?',
+    #     min_value=0,
+    #     max_value=30,
+    #     allow_float=False)
+    # print(f"Your age: {age}")
+    # quest = cutie.secure_input('Secretos Passwordos: ')
+    # print(f"Ha, I've got you pass: {quest}")
+
 
 def main():
     DEBUG = False

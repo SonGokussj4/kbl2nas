@@ -2,7 +2,6 @@
 <?VWGELENA version="2.6.0" CATIA_version="V5R26SP3HF42" system="Unkown10.0" compilation_date="2016-08-17 " compilation_time="13:13:21"?>
 <?DateOfExtraction date="2019-01-30 10:49:46"?>
 <kbl:KBL_container id="KBL_container_1" version_id="2.3" xmlns:kbl="http://www.prostep.org/Car_electric_container/KBL2.3/KBLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.prostep.org/Car_electric_container/KBL2.3/KBLSchema KBL_Schema_V2.3.xsd">
-<ns0:KBL_container xmlns:ns0="http://www.prostep.org/Car_electric_container/KBL2.3/KBLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="KBL_container_1" version_id="2.3" xsi:schemaLocation="http://www.prostep.org/Car_electric_container/KBL2.3/KBLSchema KBL_Schema_V2.3.xsd">
     <Cartesian_point id="Cartesian_point_25">
         <Coordinates>100.</Coordinates>
         <Coordinates>-100.</Coordinates>
@@ -386,8 +385,8 @@
             <Value_component>149.999912</Value_component>
         </Virtual_length>
         <Form>circular</Form>
-        <End_node>26</End_node>
-        <Start_node>25</Start_node>
+        <End_node>Node_2</End_node>
+        <Start_node>Node_1</Start_node>
         <Cross_section_area_information id="Cross_section_area_1">
             <Value_determination>reserved</Value_determination>
             <Area id="Area_1">
@@ -413,8 +412,8 @@
             <Value_component>150.000000</Value_component>
         </Virtual_length>
         <Form>circular</Form>
-        <End_node>27</End_node>
-        <Start_node>26</Start_node>
+        <End_node>Node_3</End_node>
+        <Start_node>Node_2</Start_node>
         <Cross_section_area_information id="Cross_section_area_2">
             <Value_determination>reserved</Value_determination>
             <Area id="Area_2">
@@ -440,8 +439,8 @@
             <Value_component>250.000097</Value_component>
         </Virtual_length>
         <Form>circular</Form>
-        <End_node>26</End_node>
-        <Start_node>27</Start_node>
+        <End_node>Node_2</End_node>
+        <Start_node>Node_4</Start_node>
         <Cross_section_area_information id="Cross_section_area_3">
             <Value_determination>reserved</Value_determination>
             <Area id="Area_3">
@@ -455,22 +454,22 @@
         </Center_curve>
     </Segment>
     <Node id="Node_1">
-        <Id>CN2 ROUTING_HUT_KBL_TEST-Multi-branchable1/ElecRouteBody.1/Split.1/ElecBundleSegmentExtremity.1</Id>
+        <Id></Id>
         <Cartesian_point>Cartesian_point_25</Cartesian_point>
         <Referenced_components>Connector_occurrence_2</Referenced_components>
     </Node>
     <Node id="Node_2">
-        <Id>ROUTING_HUT_KBL_TEST-Multi-branchable1/ElecRouteBody.1/Split.1/ElecBundleSegmentExtremity.2 ROUTING_HUT_KBL_TEST-Multi-branchable2/ElecRouteBody.3/Flexible Curve.3/ElecBundleSegmentExtremity.7 ROUTING_HUT_KBL_TEST-Multi-branchable3/ElecRouteBody.1/Split.3/ElecBundleSegmentExtremity.2</Id>
+        <Id></Id>
         <Cartesian_point>Cartesian_point_26</Cartesian_point>
     </Node>
     <Node id="Node_3">
-        <Id>CN3 ROUTING_HUT_KBL_TEST-Multi-branchable2/ElecRouteBody.3/Flexible Curve.3/ElecBundleSegmentExtremity.8</Id>
+        <Id></Id>
         <Cartesian_point>Cartesian_point_27</Cartesian_point>
         <Referenced_components>Connector_occurrence_3</Referenced_components>
     </Node>
     <Node id="Node_4">
-        <Id>CN1 ROUTING_HUT_KBL_TEST-Multi-branchable3/ElecRouteBody.1/Split.3/ElecBundleSegmentExtremity.1</Id>
-        <Cartesian_point>Cartesian_point_26</Cartesian_point>
+        <Id></Id>
+        <Cartesian_point>Cartesian_point_28</Cartesian_point>
         <Referenced_components>Connector_occurrence_1</Referenced_components>
     </Node>
-</ns0:KBL_container>
+</kbl:KBL_container>
