@@ -300,19 +300,11 @@ def nas2kbl(DEBUG):
     res = indent(root)
     tree.write(outfile)
 
-    # Write first 3 lines from '.kbl' file into 'outfile' and rewrite last line
-    with open(kbl_filepah, 'r') as f:
-        all_lines = f.readlines()
-        start_lines = all_lines[0:4]
-        end_line = all_lines[-1]
-
+    print("[ DEBUG ] Fixing xml <ns0: --> <kbl: first 3 lines and list line within '.PARSED.kbl'. Reasons: unknown...")
     with open(outfile, 'r') as f:
-        xml_lines = f.readlines()[1:-1]
-
-    lines = start_lines + xml_lines + list(end_line)
+        xml_lines = [line.replace('ns0', 'kbl') if 'ns0' in line else line for line in f.readlines()]
     with open(outfile, 'w') as f:
-        print("[ DEBUG ] Fixing first 3 lines and list line within '.PARSED.kbl'. Reasons: unknown...")
-        f.writelines(lines)
+        f.writelines(xml_lines)
 
     print("[ INFO ] DONE")
 
