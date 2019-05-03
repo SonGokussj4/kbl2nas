@@ -42,8 +42,7 @@ class Point:
 
 
 def prettify(elem):
-    """Return a pretty-printed XML string for the Element.
-    """
+    """Return a pretty-printed XML string for the Element."""
     rough_string = ET.tostring(elem, 'utf-8')
     reparsed = minidom.parseString(rough_string)
     return reparsed.toprettyxml(indent="    ")
@@ -240,33 +239,54 @@ def nas2kbl(DEBUG):
         crod_dc_chained_uniq[key] = unique
     # print(crod_dc_chained_uniq)
 
-    print("[ DEBUG ] Creating nodes_dc dict (+1 keys); removing first and last value from crod_dc_chained_uniq")
-    nodes_dc = {}
-    # Save first element of the first occurance
-    nodes_dc[1] = crod_dc_chained_uniq[1][0]
+    print("[ DEBUG ] Removing first and last value from crod_dc_chained_uniq")
+    start_end_nodes = {}
+    nodes_set = set()
     for key, val in crod_dc_chained_uniq.items():
-        # Delete fist element
-        crod_dc_chained_uniq[key] = crod_dc_chained_uniq[key][1:]
-        # Pop last element into nodes_dc
-        nodes_dc[key + 1] = crod_dc_chained_uniq[key].pop()
+        start_node, end_node = val[0], val[-1]
+        # Extract first and last element into set
+        nodes_set.add(start_node)
+        nodes_set.add(end_node)
+        # Make dictionary of these couples
+        start_end_nodes[key] = [f'Cartesian_point_{start_node}', f'Cartesian_point_{end_node}']
+        # Delete first element and last element
+        crod_dc_chained_uniq[key] = crod_dc_chained_uniq[key][1:-1]
 
-    # print(crod_dc_chained_uniq)
-    # print(nodes_dc)
+    # print("crod_dc_chained_uniq:", crod_dc_chained_uniq)
+    # print("nodes_set:", nodes_set)
+    # print("DEBUG: start_end_nodes:", start_end_nodes)
+    node_dc = {}
+    for idx, node_num in enumerate(sorted(nodes_set), 1):
+        node_dc[f'Node_{idx}'] = f'Cartesian_point_{node_num}'
+    # print("DEBUG: node_dc:", node_dc)
+
+    print("[ DEBUG ] Modifying 'Node' elements within .kbl file")
+    # Modify 'Node'
+    cart_to_node_dc = {}
+    for node in root.findall('Node'):
+        cartesian_point = node.find('Cartesian_point')
+        cartesian_point: ET.Element
+        print(f"[ DEBUG ]   {node.get('id')}: {node_dc[node.get('id')]}")
+        cartesian_point.text = node_dc[node.get('id')]
+        cart_to_node_dc[node_dc[node.get('id')]] = node.get('id')
+
+    # print("DEBUG: cart_to_node_dc:", cart_to_node_dc)
 
     print("[ DEBUG ] Iterating over .kbl segments and modifying 'start_node', 'end_node' and 'Control_points'")
     # For each 'Segment' Modify 'Center_curve - Control_points', 'End_node' and 'Start_node'
     for segment, (key, vals) in zip(root.findall('Segment'), crod_dc_chained_uniq.items()):
         print(f"[ DEBUG ] {segment.get('id')}")
+        segment_num = segment.get('id').split('_')[-1]
 
         # Modify 'Start_node'
-        print(f"[ DEBUG ]   Modifying 'start_node' = {nodes_dc[key]}")
+        print(f"[ DEBUG ]   Modifying 'start_node' = {cart_to_node_dc[start_end_nodes[key][0]]}")
         start_node = segment.find('Start_node')
-        start_node.text = str(nodes_dc[key])
+        start_node.text = str(cart_to_node_dc[start_end_nodes[key][0]])
 
         # Modify 'End_node'
-        print(f"[ DEBUG ]   Modifying 'end_node' = {nodes_dc[key + 1]}")
+        print(f"[ DEBUG ]   Modifying 'end_node' = {cart_to_node_dc[start_end_nodes[key][1]]}")
         end_node = segment.find('End_node')
-        end_node.text = str(nodes_dc[key + 1])
+        end_node.text = str(cart_to_node_dc[start_end_nodes[key][1]])
 
         # Modify 'Center_curve'
         print(f"[ DEBUG ]   Modifying 'Center_curve' = {vals}")
@@ -275,31 +295,23 @@ def nas2kbl(DEBUG):
         control_points = center_curve.find('Control_points')
         control_points.text = full_text
 
-    print("[ DEBUG ] Modifying 'Node' elements within .kbl file")
-    # Modify 'Node'
-    for node in root.findall('Node'):
-        cartesian_point = node.find('Cartesian_point')
-        cartesian_point: ET.Element
-        node_num = int(node.get('id').split('_')[-1])
-        print(f"[ DEBUG ]   'Node id': {node.get('id')} - Cartesian_point: {nodes_dc[node_num]}")
-        cartesian_point.text = f'Cartesian_point_{nodes_dc[node_num]}'
-
     print(f"[ DEBUG ] Copying etree into new .PARSED.kbl file: '{outfile}'")
     # res = prettify(root)
     res = indent(root)
     tree.write(outfile)
 
-    # Write first 3 lines from '.kbl' file into 'outfile'
-    # Reasons: for some reason it won't parse the '<?xxx' lines...
+    # Write first 3 lines from '.kbl' file into 'outfile' and rewrite last line
     with open(kbl_filepah, 'r') as f:
-        start_lines = f.readlines()[0:4]
+        all_lines = f.readlines()
+        start_lines = all_lines[0:4]
+        end_line = all_lines[-1]
 
     with open(outfile, 'r') as f:
-        xml_lines = f.readlines()
+        xml_lines = f.readlines()[1:-1]
 
-    lines = start_lines + xml_lines
+    lines = start_lines + xml_lines + list(end_line)
     with open(outfile, 'w') as f:
-        print("[ DEBUG ] Writing first 3 lines from '.kbl' into '.PARSED.kbl'. Reasons: unknown...")
+        print("[ DEBUG ] Fixing first 3 lines and list line within '.PARSED.kbl'. Reasons: unknown...")
         f.writelines(lines)
 
     print("[ INFO ] DONE")
