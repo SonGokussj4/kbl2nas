@@ -7,7 +7,7 @@ from collections import defaultdict
 from xml.dom import minidom
 from itertools import chain
 
-DEBUG_PRINT = False
+DEBUG_PRINT = True
 
 
 def prettify(elem):
@@ -66,9 +66,14 @@ class CenterCurve:
 
 
 class Segment:
-    """[summary]
+    """Segment class for manipulating itself and child instances of Center_Curves and Points.
 
-    [description]
+    num: Number depending on the global Segment counter
+    id: Segment id from .kbl
+    start_node: Segment Start_node text
+    end_node: Segment End_node text
+    center_curves: List of CenterCurve() Class instances within Segment
+    center_curves_ids: List of Center_Curves ids
     """
 
     idCounter = 0
@@ -83,12 +88,14 @@ class Segment:
         self.end_node = segment.find('End_node').text
         self.center_curves = [CenterCurve(curve) for curve in self.segment.findall('Center_curve')]
         self.center_curves_ids = [c.id for c in self.center_curves]
-        self.add_start_node()
-        self.add_end_node()
-        self.add_connecting_control_points()
+        self._add_start_node()
+        self._add_end_node()
+        self._add_connecting_control_points()
 
-    def add_start_node(self):
-        """Insert Segment's StartNode [GRID] to 1st position of 1st Center_curve's Control_Points list."""
+    def _add_start_node(self):
+        """Insert Segment's StartNode [GRID] to 1st position of 1st Center_curve's Control_Points list.
+
+        Additionaly add comment to Point if it's Start_node. If it has already comment, append."""
         self.center_curves[0].control_points.insert(0, self.nodes_dict.get(self.start_node))
         for point in Points.points:
             if point.id == self.nodes_dict.get(self.start_node):
@@ -97,8 +104,10 @@ class Segment:
                 else:
                     point.comment = f"{self.start_node} [start], {point.comment}"
 
-    def add_end_node(self):
-        """Insert Segment's EndNode [GRID] to last position of last Center_curve's Control_Points list."""
+    def _add_end_node(self):
+        """Insert Segment's EndNode [GRID] to last position of last Center_curve's Control_Points list.
+
+        Additionaly add comment to Point if it's End_node. If it has already comment, append."""
         self.center_curves[-1].control_points.append(self.nodes_dict.get(self.end_node))
         for point in Points.points:
             if point.id == self.nodes_dict.get(self.end_node):
@@ -108,7 +117,7 @@ class Segment:
                     point.comment = f"{point.comment}, {self.end_node} [end]"
 
 
-    def add_connecting_control_points(self):
+    def _add_connecting_control_points(self):
         """Add connnecting control point to beginning of each center_curve.
 
         Example:
@@ -124,8 +133,6 @@ class Segment:
         """
         for prev_curve, next_curve in zip(self.center_curves[0:-1], self.center_curves[1:]):
             next_curve.control_points.insert(0, prev_curve.control_points[-1])
-
-        return
 
 
 class Points:
@@ -151,10 +158,16 @@ class Points:
 
 
 class Point:
-    """Cartesian Point.
+    """Cartesian Point class manipulating.
+
     Init Args:
         point_id <str> = Cartesian_point_46
         coords_list <list> = [-100, 65.43325, 14.556]
+
+    id: return Cartesian_Point id
+    x: return x coord
+    y: return y coord
+    z: return z coord
     """
 
     idCounter = 0
@@ -256,10 +269,6 @@ def kbl2nas(DEBUG):
     # ==========================
     # ANSA_NAME_COMMENT - PROD
     # ==========================
-    # for idx, center_curve in enumerate(root.findall('Segment/Center_curve'), 1):
-    #     line_text = f"$ANSA_NAME_COMMENT;{idx};PROD;{center_curve.get('id')};;NO;NO;NO;"
-    #     print(line_text)
-    #     lines.append(f"{line_text}\n")
     for segment in Segments.segments:
         for center_curve in segment.center_curves:
             cp_text = ', '.join(center_curve.control_points)
